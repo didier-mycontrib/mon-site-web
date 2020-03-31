@@ -1,4 +1,4 @@
-{"password":"$2b$10$h8rlBU0fj73zOcrL2gqaleCJ5bVSXCU6Xx1WznFCjwnDLPfwBp2vG","roles":"admin,publisher,user","_id":"didier"}
-{"password":"$2b$10$wtZSK7KecHG3sPi3A7f1seEo6WalZ868.PAZzBEI9sZ4eczizEOVm","roles":"user","_id":"user1"}
 {"password":"$2b$10$CP9VH3pjLkhXlhF1zy..0.TeItk9vpDtgyX23Jy53IzWRzAqCjFbW","roles":"admin,publisher,user","_id":"didier"}
 {"password":"$2b$10$N1cv5dX794ckRtniqi2LG.Gku82qg9TWjjsV8OvhsIDbDM80h0Ew6","roles":"user","_id":"user1"}
+{"password":"$2b$10$hEDnIKpb3fEE4NUH4FbCfeQk8tLIPKimrldPXjt1dzWmjfMFmvfQ6","roles":"admin,publisher,user","_id":"didier"}
+{"password":"$2b$10$ShpNdkcvIqxu26qx7n.8euUxPNqDFhSIM/g5XvZ3rXx6pt9l8Xdr2","roles":"user","_id":"user1"}

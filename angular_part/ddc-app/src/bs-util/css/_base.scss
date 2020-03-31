@@ -26,47 +26,47 @@ $default-theme : "blue-theme";
 
 $colors-by-theme:( 
   blue-theme :(
-      txt-primary:   #150f46,
-      bg-primary:    #04245a,
-      bg-hl-primary:    #501750,
+      txt-primary:   #1f1286,
+      bg-primary:    #1f1286,
+      bg-hl-primary:    #592875,
       txt-inv-primary:  #ffffff,
-      txt-inv-hl-primary:  #f7f314,
+      txt-inv-hl-primary:  #eff30a,
 
-      txt-secondary: #031c46,
-      bg-secondary:  #3745c5,
-      bg-hl-secondary: #832f86,
+      txt-secondary: #1f1286,
+      bg-secondary:  #4555e9,
+      bg-hl-secondary: #913594,
       txt-inv-secondary:  #ffffff,
       txt-inv-hl-secondary:  #f7f314,
 
       txt-secondary2: #46032c,
       bg-secondary2:  #401658,
-      bg-hl-secondary2: #3745c5,
+      bg-hl-secondary2: #4555e9,
       txt-inv-secondary2:  #ffffff,
       txt-inv-hl-secondary2:  #eff30a,
       ),
     green-theme :(
-        txt-primary:   #0f3802,
-        bg-primary:    #1f5320,
+        txt-primary:   #134703,
+        bg-primary:    #206321,
         bg-hl-primary:    #176b80,
         txt-inv-primary:  #ffffff,
-        txt-inv-hl-primary:  #f7f314,
+        txt-inv-hl-primary:  #faf744,
   
-        txt-secondary: #147511,
+        txt-secondary: #198116,
         bg-secondary:  #3abb3a,
         bg-hl-secondary: #5687e2,
         txt-inv-secondary:  #ffffff,
-        txt-inv-hl-secondary:  #42093b,
+        txt-inv-hl-secondary:  #581050,
 
         txt-secondary2: #154e0e,
-        bg-secondary2:  #b7f803d8,
+        bg-secondary2:  #9ed30ed8,
         bg-hl-secondary2: #4a9c91,
         txt-inv-secondary2:  #ffffff,
-        txt-inv-hl-secondary2:  #461938
+        txt-inv-hl-secondary2:  #581050
         ),
     red-theme :(
-        txt-primary:   #dd0f0f,
-        bg-primary:    #960404,
-        bg-hl-primary:    #f1691a,
+        txt-primary:   #c91717,
+        bg-primary:    #8a1d1d,
+        bg-hl-primary:    #f07026,
         txt-inv-primary:  #ffffff,
         txt-inv-hl-primary:  #89f574,
   
