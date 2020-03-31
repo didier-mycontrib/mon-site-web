@@ -1,0 +1,3 @@
+dans l'edition d'un qcm , proposer (alternativement ou également)
+les boutons "add-question" et "remove-question" 
+en bas du formulaire .

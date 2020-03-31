@@ -1,0 +1,18 @@
+<div class="fondParDefaut row">
+    <div class="offset-2 col-8" >
+       <h3>Didier Defrance (conseils, formations)</h3>
+       <carousel>
+             <slide *ngFor="let cd of myCarrouselDefs">
+                <a [routerLink]="[cd.path]" >
+                   <img [src]="cd.image" [alt]="cd.text" 
+                         style="display: block; width: 100%;">
+                   <div class="carousel-caption d-none d-md-block">
+                         <h4>{{cd.text}}</h4>
+                   </div>
+              </a>
+             </slide>
+          </carousel>
+    </div>
+ </div>
+
+ Consultant informatique indépendant spécialisé dans le développement web (java/JEE et javascript/angular) résidant à Vernon (27) et prêt à effectuer des missions (développements, formations) à distance raisonnable (région Parisienne, Haute-Normandie, ...)

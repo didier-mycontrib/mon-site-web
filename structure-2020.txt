@@ -1,0 +1,9 @@
+front-end angular
+multi-modules :
+* app (avec base dynamique de plans de cours , ...)
+* bs-util
+* qcm (v1 : basic/essentielle , v2 : saas )
+
+backend node/express:
+* qcm-api
+* ddc-api

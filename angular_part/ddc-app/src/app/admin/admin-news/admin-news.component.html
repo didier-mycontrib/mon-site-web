@@ -1,0 +1,83 @@
+<generic-crud [genericCrudContext]='genericCrudContext'>
+
+
+  <!-- debut contenu ancien onglet 1 --> &nbsp;
+     <form role="form" #formPublication="ngForm" (mouseenter)="onFormInit()"
+     method="POST" encType="multipart/form-data"  id="formUpload" class="form-horizontal">
+       
+        <bsu-my-fg-label [label]="'_id'">
+                <i>{{genericCrudContext.selectedObject._id}}</i> (<b>{{genericCrudContext.mode}}</b>)
+        </bsu-my-fg-label>   
+
+
+        <bsu-my-fg-label [label]="'Date'">
+           <div class="input-group">
+            <input  class="form-control" placeholder="yyyy-mm-dd"
+                   name="date" [(ngModel)]="datePublication" bsDatepicker
+                   [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" />
+           </div>
+        </bsu-my-fg-label>
+
+         <bsu-my-fg-label [label]="'Titre'">
+             <input type="text" class="form-control" required
+                    name="titre" [(ngModel)]="genericCrudContext.selectedObject.titre" />
+         </bsu-my-fg-label>
+         
+         <bsu-my-fg-label [label]="'image (facultative)'">
+             <input type="file" class="form-control" 
+                     id="f_imageFile" #f_imageFile
+                    (change)="handleImageFileInput($event.target.files)"/>
+             {{genericCrudContext.selectedObject.fichier_image_name}}
+         </bsu-my-fg-label>
+         
+         <bsu-my-fg-label [label]="'Texte/Résumé (html)'">
+             <textarea rows="3" class="form-control" name="resume" required
+                       [(ngModel)]="genericCrudContext.selectedObject.resume" 
+                       (dblclick)="modalResume.openThisContext()" ></textarea>
+         </bsu-my-fg-label>
+         <bsu-modal [title]="genericCrudContext.selectedObject.titre" #modalResume
+                    [innerHtmlText]="genericCrudContext.selectedObject.resume"></bsu-modal>
+       
+         <bsu-my-fg-label [label]="'type de détail'">
+             <input type="radio" name="detailType" [(ngModel)]="detailType" [value]="'none'" /> aucun &nbsp;&nbsp;
+             <input type="radio" name="detailType" [(ngModel)]="detailType" [value]="'text'" /> texte développé (html simple)&nbsp;&nbsp;
+             <input type="radio" name="detailType" [(ngModel)]="detailType" [value]="'file'" /> fichier (.html, .pdf)&nbsp;&nbsp;
+             <input type="radio" name="detailType" [(ngModel)]="detailType" [value]="'link'" /> lien externe
+         </bsu-my-fg-label>
+       
+         <bsu-my-fg-label [label]="'Fichier (page) de détails'"
+                          [style.display]="detailType=='file'?'block':'none'">
+             <input type="file" class="form-control" 
+                    (change)="handleDetailFileInput($event.target.files)"
+                     id="f_detailsFile" #f_detailsFile />
+             {{genericCrudContext.selectedObject.fichier_details_name}}
+         </bsu-my-fg-label>
+         
+         <bsu-my-fg-label [label]="'Texte développé (html simple)'"
+                          [style.display]="detailType=='text'?'block':'none'">
+             <textarea rows="10" class="form-control" name="texte_complet"
+                       [(ngModel)]="genericCrudContext.selectedObject.texte_complet" 
+                       (dblclick)="modalTexteComplet.openThisContext()"></textarea>
+         </bsu-my-fg-label>
+         <bsu-modal [title]="genericCrudContext.selectedObject.titre" #modalTexteComplet
+                    [innerHtmlText]="genericCrudContext.selectedObject.texte_complet"></bsu-modal>
+                   
+         <bsu-my-fg-label [label]="'Lien hypertexte externe'"
+                          [style.display]="detailType=='link'?'block':'none'">
+             <input type="email" class="form-control" name="link"
+                    [(ngModel)]="genericCrudContext.selectedObject.lien_externe"
+                   placeholder="exemple http://site-externe.com/page-interessante.html" />
+         </bsu-my-fg-label>
+         
+         <div class="form-group row">
+           <div class="offset-sm-3 col-sm-9">
+           <input  type="submit" class="btn my-bg-primary text-white" 
+                   [disabled]="!formPublication.form.valid" [value]="genericCrudContext.selectedObject._id?'Modifier':'Publier'" 
+                   (click)="onSubmit()" /> &nbsp;&nbsp; <span>{{genericCrudContext.msgSaveOrUpdate}}</span>
+           </div>
+         </div>
+         
+       </form>
+      
+
+  </generic-crud>

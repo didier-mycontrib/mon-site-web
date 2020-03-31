@@ -1,0 +1,11 @@
+.main-panel{
+    width:100%;
+    margin : 0;
+}
+
+.my-content{
+    padding: 3px;
+    /* for a speudo sticky-footer */
+    min-height: calc(100vh - 7rem);
+    /* 100% viewportHeight - (headerSize+ footerSize + ... ))*/
+}

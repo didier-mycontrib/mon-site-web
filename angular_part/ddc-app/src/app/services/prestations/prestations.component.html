@@ -1,0 +1,24 @@
+<div class="card">
+        <div class="card-header  my-bg-primary  appuye">
+              <h4 class="text-white">Prestations proposées</h4>
+         </div>
+     <div class="card-body fondParDefaut">
+
+    
+        <tabset>
+            <tab>
+                 <ng-template tabHeading><b>formation</b></ng-template>
+                 <app-pres-formation></app-pres-formation>       
+            </tab>
+            <tab>
+                <ng-template tabHeading><b>développement (front-end & back-end)</b></ng-template>
+                <app-pres-developpement></app-pres-developpement>
+               </tab>
+            <tab>
+                <ng-template tabHeading><b>conseils</b></ng-template>
+                <app-pres-conseils></app-pres-conseils>       
+            </tab>
+        </tabset>
+
+    </div>
+</div>

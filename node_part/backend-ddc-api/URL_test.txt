@@ -1,0 +1,22 @@
+http://localhost:8282/
+http://localhost:8282/test-ws (in globalRoutes.ts --> .js)
+
+http://localhost:8282/contact-api/public/contact
+http://localhost:8282/qcm-api/public/qcm/1
+http://localhost:8282/res-api/public/ressource/1
+http://localhost:8282/news-api/public/publication
+
+http://localhost:8282/login-api/private/role_admin/login
+http://localhost:8282/login-api/public/auth (POST)
+
+database -> embedded neDB or Mongo/test
+upload files : front-end/posts/images (.png , .jpeg, ...)
+               front-end/posts/  (.pdf , ...)
+               ...
+
+download url like :
+http://localhost:8282/posts/images/tourEiffel.jpg
+http://localhost:8282/posts/JAXP.pdf
+
+sample-data (for test) to copy in front-end/posts/
+               front-end/sample-posts et sample-posts/images

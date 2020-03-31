@@ -1,0 +1,77 @@
+
+<tabset>
+<tab>
+    <ng-template tabHeading><b>mes coordonnées</b></ng-template>
+    <div class="card">
+      <div class="card-body">
+        <p>Didier DEFRANCE <i>(formation et conseils en informatique)</i></p>
+        <p>24 rue Louise Damasse, 27200 Vernon</p>
+        <p>Téléphone: 06 99 24 41 06</p>
+        <p>Email: <a href="mailto:didier@d-defrance.fr">didier@d-defrance.fr</a></p>         
+     </div>
+    </div>
+</tab>
+
+<tab>
+    <ng-template tabHeading><b>formulaire de contact</b></ng-template>
+    <div class="card">
+        <div class="card-body">
+
+<div class="card">
+    <h4 class="card-header my-bg-primary appuye text-white">{{cardTitle}}</h4>
+  <div class="card-body fondParDefaut">
+
+
+  <form #formContact="ngForm"   class="form-horizontal">
+
+    <bsu-my-fg-label [label]="'Nom'">
+        <input [(ngModel)]="contact.nom" class="form-control" name="nom" required/> 
+     </bsu-my-fg-label>
+  
+     <bsu-my-fg-label [label]="'Prénom'">
+        <input type="text" class="form-control" name="prenom" [(ngModel)]="contact.prenom" />
+      </bsu-my-fg-label>
+   
+      <bsu-my-fg-label [label]="'Email'">
+        <input type="email" class="form-control" name="email" [(ngModel)]="contact.email" placeholder="...@..." />
+      </bsu-my-fg-label>
+
+      <bsu-my-fg-label [label]="'Téléphone'">
+          <input type="text" class="form-control" name="telephone" [(ngModel)]="contact.telephone" placeholder="si utile (mobile ou fixe)" />
+      </bsu-my-fg-label>
+
+      <bsu-my-fg-label [label]="'Adresse'">
+          <input type="text" class="form-control" name="adresse" [(ngModel)]="contact.adresse" placeholder="si utile (ville ou bien adresse plus précise)" />
+      </bsu-my-fg-label>         
+
+      <bsu-my-fg-label [label]="'Objet'">
+        <input type="text" class="form-control" name="objet" [(ngModel)]="contact.objet" />
+      </bsu-my-fg-label>
+
+      <bsu-my-fg-label [label]="'Message'">
+        <textarea rows="8" class="form-control" name="message" [(ngModel)]="contact.message" ></textarea>
+      </bsu-my-fg-label>
+
+     <div class="form-group row">
+      <div class="col-sm-offset-3 col-sm-9">
+      <input  type="button" class="btn my-bg-primary text-white"  
+          [disabled]="!formContact.form.valid"  [value]="sendButtonLabel"
+          (click)="onSubmit()" />
+       </div>
+     </div>
+     <div class="form-group row">
+      <div class="col-sm-offset-3 col-sm-9">
+           {{msg}}
+       </div>
+     </div>
+  </form>
+  
+  </div> 
+ </div> 
+
+</div> 
+</div> 
+
+</tab>
+
+</tabset>

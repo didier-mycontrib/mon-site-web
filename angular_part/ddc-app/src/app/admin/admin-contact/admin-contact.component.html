@@ -1,0 +1,59 @@
+<generic-crud [genericCrudContext]='genericCrudContext'>
+
+     <form role="form" #formContact="ngForm" 
+     method="POST"  id="formContact" class="form-horizontal">
+       
+        <!-- always auto_incr here: -->
+          <bsu-my-fg-label [label]="'_id'">
+            <i>{{genericCrudContext.selectedObject._id}}</i> (<b>{{genericCrudContext.mode}}</b>)
+         </bsu-my-fg-label>  
+
+         <bsu-my-fg-label label="nom">
+             <input type="text" class="form-control" required
+                    name="nom" [(ngModel)]="genericCrudContext.selectedObject.nom" />
+         </bsu-my-fg-label>
+
+         <bsu-my-fg-label label="prenom">
+          <input type="text" class="form-control" 
+                 name="prenom" [(ngModel)]="genericCrudContext.selectedObject.prenom" />
+          </bsu-my-fg-label>
+
+         <bsu-my-fg-label label="adresse">
+            <input type="text" class="form-control" 
+               name="adresse" [(ngModel)]="genericCrudContext.selectedObject.adresse" />
+          </bsu-my-fg-label>
+
+       <bsu-my-fg-label label="telephone">
+            <input type="text" class="form-control" 
+             name="telephone" [(ngModel)]="genericCrudContext.selectedObject.telephone" />
+        </bsu-my-fg-label>
+
+        <bsu-my-fg-label label="email">
+          <input type="text" class="form-control" required
+           name="email" [(ngModel)]="genericCrudContext.selectedObject.email" />
+         </bsu-my-fg-label>
+
+         <bsu-my-fg-label label="objet">
+            <input type="text" class="form-control"
+             name="objet" [(ngModel)]="genericCrudContext.selectedObject.objet" />
+         </bsu-my-fg-label>
+
+         <bsu-my-fg-label label="message">
+            <textarea rows="6" class="form-control" required
+            name="message" [(ngModel)]="genericCrudContext.selectedObject.message">
+          </textarea>
+       </bsu-my-fg-label>
+
+         
+         <div class="form-group row">
+           <div class="offset-sm-3 col-sm-9">
+           <input  type="submit" class="btn my-bg-primary text-white" 
+                   [disabled]="!formContact.form.valid" [value]="genericCrudContext.mode!='newOne'?'Modifier':'Ajouter'" 
+                   (click)="onSubmit()" /> &nbsp;&nbsp; <span>{{genericCrudContext.msgSaveOrUpdate}}</span>
+           </div>
+         </div>
+         
+       </form>
+    
+</generic-crud>
+

@@ -1,0 +1,56 @@
+<generic-crud [genericCrudContext]='genericCrudContext'>
+
+
+    <!-- debut contenu ancien onglet 1 --> &nbsp;
+       <form role="form" #formRessource="ngForm"
+       method="POST" encType="multipart/form-data"  id="formUpload" class="form-horizontal">
+         
+          <bsu-my-fg-label [label]="'_id'">
+                  <i>{{genericCrudContext.selectedObject._id}}</i> (<b>{{genericCrudContext.mode}}</b>)
+          </bsu-my-fg-label>   
+
+          <bsu-my-fg-label [label]="'ressource (fichier)'">
+                <input type="file" class="form-control" 
+                        id="f_file" #f_file
+                       (change)="handleResFileInput($event.target.files)"/>
+                {{genericCrudContext.selectedObject.res_fic_name}}
+            </bsu-my-fg-label>
+  
+           <bsu-my-fg-label [label]="'Titre'">
+               <input type="text" class="form-control" required
+                      name="titre" [(ngModel)]="genericCrudContext.selectedObject.titre" />
+           </bsu-my-fg-label>
+
+           <bsu-my-fg-label [label]="'type'">
+                <select class="form-control" name="res_type" [(ngModel)]="genericCrudContext.selectedObject.res_type" >
+                        <option *ngFor="let resType of resTypesSelectionnables">{{resType}}</option>   
+                </select>
+            </bsu-my-fg-label>
+
+            <bsu-my-fg-label [label]="'categorie'">
+                <select class="form-control"
+                       name="res_categorie" [(ngModel)]="genericCrudContext.selectedObject.res_categorie" >
+                    <option *ngFor="let resCat of resCategoriesSelectionnables">{{resCat}}</option>   
+                </select>
+            </bsu-my-fg-label>
+           
+            <bsu-my-fg-label [label]="'Date'">
+                <div class="input-group">
+                 <input  class="form-control" placeholder="yyyy-mm-dd"
+                        name="date" [(ngModel)]="dateRessource" bsDatepicker
+                        [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" />
+                </div>
+             </bsu-my-fg-label>
+           
+           <div class="form-group row">
+             <div class="offset-sm-3 col-sm-9">
+             <input  type="submit" class="btn my-bg-primary text-white" 
+                     [disabled]="!formRessource.form.valid" [value]="genericCrudContext.selectedObject._id?'Modifier':'Publier'" 
+                     (click)="onSubmit()" /> &nbsp;&nbsp; <span>{{genericCrudContext.msgSaveOrUpdate}}</span>
+             </div>
+           </div>
+           
+         </form>
+        
+  
+    </generic-crud>

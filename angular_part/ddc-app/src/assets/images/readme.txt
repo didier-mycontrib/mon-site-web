@@ -1,0 +1,1 @@
+taille conseillée pour images du Carrousel : 960 x 720
