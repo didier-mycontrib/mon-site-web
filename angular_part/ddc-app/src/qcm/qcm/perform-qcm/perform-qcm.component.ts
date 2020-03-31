@@ -16,7 +16,9 @@ export class PerformQcmComponent implements OnInit {
   public qcmSession : QcmSession;
   public currentQuestion : Question ;
   public numQuestion : number;
+  public currentRandomIndice : number;
   public nbQuestions: number;
+  public ramdomDeltaIndice :number = 0;
 
   constructor(public qcmService : QcmService,
               private router: Router) { 
@@ -42,14 +44,26 @@ export class PerformQcmComponent implements OnInit {
   }
   initBeginingAfterQcmLoading(){
     this.nbQuestions = this.qcmSession.qcm.nbQuestions;
+    this.ramdomDeltaIndice = Math.floor(Math.random() *  this.nbQuestions);
+    //console.log("ramdomDeltaIndice="+this.ramdomDeltaIndice);
     this.qcmSession.qcm.choices = [];
     this.initCurrentQuestion();
+  }
+
+  indiceWithRandomDelta(normalIndice : number):number{
+    let new_indice = normalIndice + this.ramdomDeltaIndice;
+    if(new_indice >= this.nbQuestions){
+      new_indice -= this.nbQuestions;
+    }
+    //console.log("new_indice="+new_indice);
+    return new_indice;
   }
 
   initCurrentQuestion(){
     if(this.numQuestion <= this.qcmSession.qcm.nbQuestions){
       this.qcmSession.currentQuestionNum=this.numQuestion;
-      this.currentQuestion=this.qcmSession.qcm.questions[this.numQuestion-1];
+      this.currentRandomIndice = this.indiceWithRandomDelta(this.numQuestion-1);
+      this.currentQuestion=this.qcmSession.qcm.questions[this.currentRandomIndice/*this.numQuestion-1*/];
       this.selections=[];
       for(let a of this.currentQuestion.answers){
         this.selections[a.txtNum]=false;
@@ -64,6 +78,7 @@ export class PerformQcmComponent implements OnInit {
       this.initCurrentQuestion();
      }
      else{
+       this.qcmSession.qcm.choices = this.qcmSession.qcm.choices.sort((ca, cb) => ca.num < cb.num ? -1 : 1);
        this.qcmService.postQcmChoices(this.qcmSession.qcm._id,
                                       this.qcmSession.qcm.choices, 
                                       this.qcmSession.performer,
@@ -84,7 +99,7 @@ export class PerformQcmComponent implements OnInit {
 
   public onValiderCurrentQuestion(): void {
     let responseChoices = new  ResponseChoices();
-    responseChoices.num=this.numQuestion;
+    responseChoices.num=this.currentRandomIndice+1;//this.numQuestion;
     responseChoices.selectedAnswerNums=[];
     for(let a of this.currentQuestion.answers){
       //console.log(a.txtNum + ' ' + this.selections[a.txtNum]);
@@ -95,7 +110,6 @@ export class PerformQcmComponent implements OnInit {
     this.qcmSession.qcm.choices.push(responseChoices);
   }
 
-  //<a [routerLink]="['/ngr/qcm/results' ]" >  qcm results </a>
 
   ngOnInit() {
   }

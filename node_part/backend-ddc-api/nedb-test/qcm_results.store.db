@@ -1,10 +1,1 @@
-{"performer":{"org":"ii","fullName":"dd","email":"didier@d-defrance.fr"},"qcmId":"2","choices":[{"num":1,"selectedAnswerNums":["c"]},{"num":2,"selectedAnswerNums":["d"]}],"globalResults":{"percentageScore":100,"nbGoodResponses":2},"_id":"eACVKm4rIcSOTmRS"}
-{"performer":{"org":"ii","fullName":"dd2","email":"didier@d-defrance.fr"},"qcmId":"2","choices":[{"num":1,"selectedAnswerNums":["c"]},{"num":2,"selectedAnswerNums":["c","d"]}],"globalResults":{"percentageScore":50,"nbGoodResponses":1},"_id":"pzRCSzp4xSHUYasB"}
-{"performer":{"org":"ii","fullName":"dd2","email":"didier@d-defrance.fr"},"qcmId":"2","choices":[{"num":1,"selectedAnswerNums":["c"]},{"num":2,"selectedAnswerNums":["d"]}],"globalResults":{"percentageScore":100,"nbGoodResponses":2},"_id":"rY5CeSYY4BAXt2YK"}
-{"performer":{"org":"ii","fullName":"ddd3","email":"not registered (confidential)"},"qcmId":"2","choices":[{"num":1,"selectedAnswerNums":["c"]},{"num":2,"selectedAnswerNums":["d"]}],"globalResults":{"percentageScore":100,"nbGoodResponses":2},"_id":"srkDg9sVrwBOjN5S"}
-{"$$deleted":true,"_id":"eACVKm4rIcSOTmRS"}
-{"$$deleted":true,"_id":"pzRCSzp4xSHUYasB"}
-{"$$deleted":true,"_id":"rY5CeSYY4BAXt2YK"}
-{"performer":{"org":"ii","fullName":"ddd4","email":"not registered (confidential)"},"qcmId":"2","choices":[{"num":1,"selectedAnswerNums":["c"]},{"num":2,"selectedAnswerNums":["a"]}],"globalResults":{"percentageScore":50,"nbGoodResponses":1},"_id":"Qst2rVa2Lv8c13v1"}
-{"$$deleted":true,"_id":"Qst2rVa2Lv8c13v1"}
-{"$$deleted":true,"_id":"srkDg9sVrwBOjN5S"}
+{"performer":{"fullName":"aa","email":"not registered (confidential)"},"qcmId":"2","choices":[{"num":1,"selectedAnswerNums":["c"]},{"num":2,"selectedAnswerNums":["c"]}],"globalResults":{"percentageScore":50,"nbGoodResponses":1},"_id":"crZiKIQTsTGqe2sf"}
