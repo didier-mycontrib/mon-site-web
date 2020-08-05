@@ -87,7 +87,7 @@ ngOnInit() {
   //GenericCrudAbstractContextHelper interface:
   //---
   
-  @ViewChild('f_file'  , {static : false}) 
+  @ViewChild('f_file') 
  fileInput : any ;
 
  resetFileInputs(){

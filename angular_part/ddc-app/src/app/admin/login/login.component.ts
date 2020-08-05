@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
     console.log("jwt payload="+this.jwtHelper.decodeToken(token)); // token
   }
 
-  @ViewChild('formLogin', { static : false}) 
+  @ViewChild('formLogin') 
   form : NgForm ;
 
 }

@@ -21,7 +21,8 @@ export class BsuModalComponent implements OnInit {
   
     constructor(private modalService: BsModalService) {}
 
-    @ViewChild('content', {static : false}) //<ng-template #content ...>
+    @ViewChild('content') //<ng-template #content ...>
+ //<ng-template #content ...>
     thisContent : any ;
 
     public openThisContext() {

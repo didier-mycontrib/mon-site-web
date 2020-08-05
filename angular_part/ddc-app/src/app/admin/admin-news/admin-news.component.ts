@@ -93,7 +93,7 @@ export class AdminNewsComponent implements OnInit , GenericCrudAbstractContextHe
 
   
 
-@ViewChild('formPublication', { static : false}) 
+@ViewChild('formPublication') 
 form : NgForm ;
 
  
@@ -116,10 +116,10 @@ form : NgForm ;
     this.datePublication = d;
   }
    
- @ViewChild('f_imageFile' , {static : false}) 
+ @ViewChild('f_imageFile') 
  imageFileInput : any ;
 
- @ViewChild('f_detailsFile'  , {static : false}) 
+ @ViewChild('f_detailsFile') 
  detailsFileInput : any ;
 
  resetFileInputs(){
