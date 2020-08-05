@@ -77,7 +77,7 @@ export function myTokenGetter() {
     MentionsLegalesComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
