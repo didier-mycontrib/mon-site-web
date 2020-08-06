@@ -1,12 +1,27 @@
 import 'zone.js/dist/zone-node';
 
+//ajout inspiré de (npm i localstorage-polyfill --save)
+//pour que localStorage.setItem(...,...) ne plante pas coté serveur
+import './globalForServer'
+global['localStorage'] = localStorage;
+global['sessionStorage'] = localStorage;
+
 import { ngExpressEngine } from '@nguniversal/express-engine';
 import * as express from 'express';
 import { join } from 'path';
+import * as expressHttpProxy from 'express-http-proxy';
 
 import { AppServerModule } from './src/main.server';
 import { APP_BASE_HREF } from '@angular/common';
 import { existsSync } from 'fs';
+
+function useSimpleExpressHttpProxyRoute(appServ,startOfRoute:string,backendHost:string){
+  appServ.use(startOfRoute, expressHttpProxy(backendHost , {
+    proxyReqPathResolver: function (req, res) {
+      return startOfRoute + req.url;
+    }
+  }));
+}
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
@@ -24,6 +39,21 @@ export function app(): express.Express {
 
   // Example Express Rest API endpoints
   // server.get('/api/**', (req, res) => { });
+  useSimpleExpressHttpProxyRoute(server,'/news-api','http://localhost:8282');
+  /*server.use('/news-api', expressHttpProxy('http://localhost:8282' , {
+    proxyReqPathResolver: function (req, res) {
+      return '/news-api' + req.url;
+    }
+  }));*/
+  useSimpleExpressHttpProxyRoute(server,'/contact-api', 'http://localhost:8282');
+  useSimpleExpressHttpProxyRoute(server,'/res-api','http://localhost:8282');
+  useSimpleExpressHttpProxyRoute(server,'/qcm-api','http://localhost:8282');
+  useSimpleExpressHttpProxyRoute(server,'/login-api', 'http://localhost:8282');
+  useSimpleExpressHttpProxyRoute(server,'/auth-api','http://localhost:8282');
+  useSimpleExpressHttpProxyRoute(server,'/images','http://localhost:8282');
+  useSimpleExpressHttpProxyRoute(server,'/posts','http://localhost:8282');
+
+
   // Serve static files from /browser
   server.get('*.*', express.static(distFolder, {
     maxAge: '1y'
