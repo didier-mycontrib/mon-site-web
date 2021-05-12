@@ -21,7 +21,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.5.3",
     "nedb": "^1.8.0",
-    "nodemailer": "^4.4.2",
+    "nodemailer": "^6.4.16",
     "sqlite3": "^4.1.0",
     "tslib": "^1.10.0"
   },
